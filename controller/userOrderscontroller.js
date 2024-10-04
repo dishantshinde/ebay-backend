@@ -44,7 +44,7 @@ const addOrdersOfUser = async (req, res) => {
 };
 
 const allOrders = async (req, res) => {
-  const { email, id } = req.body;
+  const { email } = req.query;
 
   try {
     // Await the result of User.findOne
