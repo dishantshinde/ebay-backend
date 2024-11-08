@@ -16,7 +16,9 @@ const addorDeleteProductWatchlist = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-
+    if(!Array.isArray(user.watchlist)){
+      user.watchlist = [];      
+    }
     // Check if the product already exists in the user's watchlist
     const productIndex = user.watchlist.findIndex((item) => item.asin === asin);
 
