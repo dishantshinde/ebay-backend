@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://ebay-clone-osa8.onrender.com/"], // allow requests from your React app
+    origin: ["http://localhost:3000", "https://ebay-clone-osa8.onrender.com"], // allow requests from your React app
     methods: "GET,POST,PUT,DELETE", // allowed HTTP methods
     credentials: true, // if your frontend sends cookies
   })
