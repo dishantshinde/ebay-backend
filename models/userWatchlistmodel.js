@@ -33,8 +33,8 @@ const ordersSchema = new mongoose.Schema({
 // User Schema (with email, watchlist, and orders)
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
-  watchlist: [watchlistSchema], // Array of watchlist items
-  orders: [ordersSchema], // Array of orders
+  watchlist: {type: [watchlistSchema], default: [] }, // Array of watchlist items
+  orders: {type: [ordersSchema], default:[] },  // Array of orders
 });
 
 const User = mongoose.model("ebayUser", userSchema);
