@@ -2,6 +2,7 @@ const express = require("express");
 const connectDB = require("./config/db");
 const watchlistroutes = require("./router/userwatclistRouter");
 const userroutes = require("./router/userRouter");
+const productRoute = require("./router/productsDataRoute");
 const cors = require("cors");
 
 const app = express();
@@ -16,8 +17,11 @@ app.use(
 
 connectDB();
 
+app.use(express.json({ limit: "50mb" }));
 app.use("/api", userroutes);
 app.use("/api/watchlist", watchlistroutes);
+app.use("/productData", productRoute);
+app.use("/searched", productRoute);
 
 app.get("/", (req, res) => {
   res.send("welcome to ecommerce backend");
